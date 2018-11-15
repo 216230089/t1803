@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+
+{% block title %}응급실{% endblock %}
+
+{% block content %}
+<div id="content">
+
+<style type="text/css">
+    body{
+        line-height:2em;        
+        font-family:"맑은 고딕";
+}
+    ul, li{ 
+        list-style:none;
+        text-align:center;
+        padding:0;
+        margin:0;
+
+}
+
+    #mainWrapper{
+        width: 1100px;
+        margin: 0 auto; /*가운데 정렬*/
+    }
+
+    #mainWrapper > ul > li:first-child {
+        text-align: center;
+        font-size:14pt;
+        height:40px;
+        vertical-align:middle;
+        line-height:30px;
+}
+
+    #ulTable {padding-top: 200px;}
+    
+
+    #ulTable > li:first-child > ul > li {
+        background-color:#c9c9c9;
+        font-weight:bold;
+        text-align:center;
+}
+
+    #ulTable > li > ul {
+        clear:both;
+        padding:0px auto;
+        position:relative;
+        min-width:60px;
+}
+
+    #ulTable > li > ul > li { 
+        float:left;
+        font-size:10pt;
+        border-bottom:1px solid silver;
+        vertical-align:baseline;
+}    
+
+    #ulTable > li > ul > li:first-child               {width:10%; height: 40px;} /*No 열 크기*/
+    #ulTable > li > ul > li:first-child +li           {width:25%; height: 40px;} /*병원이름 크기*/
+    #ulTable > li > ul > li:first-child +li+li        {width:5%; height: 40px;} /*전화번호 크기*/
+    #ulTable > li > ul > li:first-child +li+li+li     {width:60%; height: 40px;} /*주소 크기*/
+   /* #ulTable > li > ul > li:first-child +li+li+li+li{width:20%; height: 40px;}*/ /*조회수 열 크기*/
+
+    #divPaging {
+          clear:both; 
+        margin:0 auto; 
+        width:220px; 
+        height:50px;
+}
+
+    #divPaging > div {
+        float:left;
+        width: 30px;
+        margin:0 auto;
+        text-align:center;
+}
+
+    #liSearchOption {clear:both;}
+    #liSearchOption > div {
+        margin:0 auto; 
+        margin-top: 30px; 
+        width:auto; 
+        height:100px; 
+
+}
+
+    .left {
+        text-align : left;
+}
+
+        .menu{
+            width:100%;
+            margin-top: 30px;
+            font-size: 18pt;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        
+        .content2{
+            display:inline;
+            margin-top: 10px;
+            /*margin-left: 220px;*/
+            float:left;
+            width:100%;
+            height:146px;
+            background: #EAEAEA;
+        }
+        .btn-group {
+            margin-top: 25px;
+            margin-left: 25px;
+            text-align: center;
+            position:relative;
+            z-index:1;
+
+        }
+            
+/*      input{
+            margin-left: 25px;
+            margin-left: 25px;
+        }*/
+        
+        table.table {
+            border-spacing: 1px;
+            text-align: center;
+            line-height: 1.5;
+            margin: 20px 10px;
+            font-size: 15px;
+            background: #fff;   
+            width:100%;
+            margin-left: 2px;
+        }           
+        .box {
+            vertical-align: center;
+            display: inline;
+            width:100%;
+            height: 35px;
+            float: left;
+            background: #D8D8D8;
+            font-size: 16px;
+            margin-left: 2px;
+            margin-top: -20px;
+            padding: 10px 10px;
+        }
+
+        .button {
+            border: 1px solid #080808;
+            background: #585b5c;
+            padding: 6.5px 13px;
+            color: #ffffff;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 4px;
+            margin-left: 10px;
+            margin-top: -10px;
+            position:relative;
+            height: 30px;
+
+        }
+
+
+</style>
+
+</head>
+<body>
+    <div id="mainWrapper">
+     <h3>응급실</h3>
+            <section>
+            <article class="content2">
+            
+            <center><div class="btn-group2">
+            <div class="btn-group">
+            
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+               시도선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <span class="caret"></span>
+            
+            </button>
+            
+           
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">서울</a></li>
+                <li><a href="#">인천</a></li>      
+                <li><a href="#">경기</a></li>
+                <li><a href="#">부산</a></li>
+                <li><a href="#">대구</a></li>
+                <li><a href="#">광주</a></li>
+                <li><a href="#">대전</a></li>
+                <li><a href="#">울산</a></li>
+                <li><a href="#">세종</a></li>
+                <li><a href="#">강원</a></li>
+                <li><a href="#">충북</a></li>
+                <li><a href="#">충남</a></li>
+                <li><a href="#">전북</a></li>
+                <li><a href="#">전남</a></li>
+                <li><a href="#">경북</a></li>
+                <li><a href="#">경남</a></li>
+                <li><a href="#">제주</a></li>
+
+            </ul>
+            </div>
+            
+            <div class="btn-group">     
+        
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                구군선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">서울</a></li>
+                <li><a href="#">인천</a></li>      
+                <li><a href="#">경기</a></li>
+                <li><a href="#">부산</a></li>
+                <li><a href="#">대구</a></li>
+            </ul></div>
+            
+            <div class="btn-group">
+            
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                동선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">서울</a></li>
+                <li><a href="#">인천</a></li>      
+                <li><a href="#">경기</a></li>
+                <li><a href="#">부산</a></li>
+                <li><a href="#">대구</a></li>
+            </ul>
+        
+            </div>
+            </div></center>
+            
+
+            <br>
+        <form class="navbar-form navbar-left" role="search" action="{% url 'emer:bssearch' %}">
+            <div class="form-group" style="display:inline;">
+              <div class="input-group">
+                <input type="text" class="form-control" name="search" placeholder="search emergency">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+              </div>
+            </div>
+          </form>
+
+            </article>
+        </section>
+        <ul>
+            <!-- 게시판 제목 -->
+       
+
+            <!-- 게시판 목록  -->
+            <li>
+                <ul id ="ulTable">
+                    <li>
+                        <ul>
+                            <li>No</li>
+                            <li>병원이름</li>
+                            <li>전화번호</li>
+                            <li>주소</li>
+                            <!-- <li>작성일</li> -->
+                        </ul>
+                    </li>
+                    {% for emer in emers %}
+                    <li>
+                        <ul>
+                            <li>0</li>
+                            <li><a href='{{ emer.get_absolute_url }}'>{{ emer.mname }}</a></li>
+                            <li>{{ emer.mtel }}</li>
+                            <li>{{ emer.madd }}</li>
+                            <!-- <li>{{ post.modify_date|date:"Y.m.d" }}</li> -->
+                        </ul>
+                    </li>
+                    {% endfor %}
+
+        </ul>
+    </div>
+
+<!-- <table cellspacing=1 width=700 border=1 >
+    <tr>
+        <td>
+        {% for page in totalPageList %}
+            <a href="/listSpecificPageWork?current_page={{page}}" >
+            [
+            {% ifequal page current_page %}
+                <b>
+            {% endifequal %}
+            {{page}}
+
+            {% ifequal page current_page  %}
+                </b>
+            {% endifequal %}
+            ]
+        {% endfor %}
+        </td>
+    </tr>
+</table> -->
+
+<!-- <table width=700>
+    <tr>
+        <td><input type=button value="글쓰기"  OnClick="window.location='add'">    </td>
+        <td><form name=searchf method=post action="/searchWithSubject/">
+            <p align=right><input type=text name=searchStr size=50  maxlength=50>
+            <input type=submit value="글찾기"></p>
+        </td>
+    </tr>
+</table> -->
+</div>
+</body>
+</html>
+{% endblock %}

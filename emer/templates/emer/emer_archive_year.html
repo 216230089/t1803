@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}emer_archive_year.html{% endblock %}
+
+{% block content %}
+<div id="content">
+
+<h1>Emer Archives for {{ year|date:"Y" }}</h1>
+
+<ul>
+    {% for date in date_list %}
+    <li style="display: inline;">
+        <a href="{% url 'emer:emer_month_archive' year|date:'Y' date|date:'b' %}">{{ date|date:"F" }}</a></li>
+    {% endfor %}
+</ul>
+<br/>
+
+<div>
+    <ul>
+        {% for emer in object_list %}
+        <li>{{ emer.modify_date|date:"Y-m-d" }}&nbsp;&nbsp;&nbsp;
+        <a href="{{ emer.get_absolute_url }}"><strong>{{ emer.mname }}</strong></a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+</div>
+{% endblock %}

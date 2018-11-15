@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}응급실{% endblock %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ko">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기본응급처치</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+
+.b {
+		text-align: center;
+		width: 100%;
+		margin-left: 60px;
+}
+
+.b li { width: 20%; }
+
+a {	color: black; }
+
+
+
+
+
+.setting {
+						margin-left: 0px;
+						margin-top: 10px;
+			   }
+
+/*.menu2 {
+					width:120%;
+					font-size: 14pt;
+					font-family: Arial, sans-serif;
+					display: inline;
+					text-align: center;
+		    }
+*/
+
+.d img  {
+					width: 30px;
+					height: 30px;
+					margin-right: 30px;
+					margin-top: 10px;
+					margin-bottom: 10px;
+					margin-left: 10px;
+}
+
+/*
+.d ul{
+				border : 1px solid #BDBDBD;
+				list-style: none;
+				position: absolute;
+				display: none;
+}
+
+
+.d li {
+				border-right:  1px solid #BDBDBD;
+}
+
+.d li:hover ul {
+					display: block;
+					border : 1px solid #BDBDBD;
+}
+
+.dropdown {
+				background-color: #fff;
+				width: 200px;
+}
+
+.dropdown li {
+				font-size: 18px;
+				background-color: #fff;
+				margin: 10% 10% 10% -20% ;
+				border-right : 1px solid #fff;
+}
+*/
+
+#hr {
+				border-bottom: 1px solid #BDBDBD;
+				width: 120%;
+}
+
+.c {
+			border-bottom: 1px solid #BDBDBD;
+}
+
+
+.btn {
+	 			width: 250px;
+	 			height: 50px;
+
+}
+
+.tb{
+	 	   background-color: #6799FF;
+	 		 color: #fff;
+}
+
+.fb{
+	 	    background-color: #BDBDBD;
+	 		color: #000;
+}
+
+
+.text {
+			font-weight: bold;
+			margin-left: 37px;
+
+}
+
+.text h3 {
+	          font-weight: bold;
+			margin-top: 30px;
+}
+
+#p1 {
+	    color: #BDBDBD;
+}
+
+#p2{
+			font-weight: bold;
+			font-size: 18px;
+}
+
+
+.text1 h4{
+						font-weight: bold;
+}
+
+
+.text1 img {
+							width: 500px;
+							height: 500px;
+}
+
+.cprhow {
+						text-align: center;
+
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+
+
+
+		<div class="text">
+		<h3>기본응급처치</h3>
+		<p id="p1">기본이 되는 응급처치법에 대한 정보를 확인하실 수 있습니다.</p>
+		<br>
+		<div class="row">
+		<div class="btn col-md-3">
+		<button type="button" class="tb btn" onclick="window.location.href='{% url 'ambulance:index' %}'">기본응급처치 심폐소생술</a></button>
+		<button type="button" class="fb btn" onclick="window.location.href='{% url 'emer:index' %}'">성인 심폐소생술</a></button>
+		<button type="button" class="fb btn" onclick="window.location.href='{% url 'bookmark2:index2' %}'">소아 심폐소생술</a></button>
+		<button type="button" class="fb btn" onclick="window.location.href='{% url 'bookmark:index' %}'">자동심장충격기(AED)</a></button>
+	  </div>
+	  </div>
+
+
+		<div class="text1">
+		<h3>심폐소생술</h3>
+		<br>
+		<h4>심폐소생술(CPR) 이란?</h4>
+		<img src="{% static 'img/cpr1.png' %}"  />
+		<br>
+		<p>정지된 심장을 대신해 심장과 뇌에 산소가 포함된 혈액을 공급해 후즌 응급처치이다.<br>
+			 일반인이 심정지 환자를 발견 했을 때 그림과 같은 흐름도로 구조를 진행하면 된다.
+		</p>
+		<br>
+		<h4>심폐소생술(CPR) 방법</h4>
+		<br>
+		<div class="cprhow">
+		<img src="{% static 'img/cpr2.png' %}" />
+		<p>1. 심정지 및 무호흡 확인</p>
+		<p>양어깨를 두드리며 말을 걸고 눈과 귀로 심정지 및 무호흡 유무를 확인한다.<br>
+			 (반응과 호흡이 있으면 심정지 아님)
+		</p>
+		<img src="{% static 'img/cpr3.png' %}" />
+		<p>2. 도움 및 119신고 요청</p>
+		<p>주변사람에게(꼭 집어서) 119신고를 부탁하고 자동심장충격기를 요청한다.</p>
+		<img src="{% static 'img/cpr4.png' %}" />
+		<p>3. 가슴압박 30회 시행</p>
+		<p>주변사람에게(꼭 집어서) 119신고를 부탁하고 자동심장충격기를 요청한다.</p>
+		<img src="{% static 'img/cpr3.png' %}" />
+		<p>4. 인공호흡 2회 시행</p>
+		<p>코를 막고 구조자의 입을 완전히 밀착하여 정상호흡을 약 1초 동안 2회 숨을 불어 넣는다.<br>
+			 (인공호흡이 어려울 경우 가슴압박을 자속적으로 시행)
+		</p>
+		<img src="{% static 'img/cpr4.png' %}" />
+		<p>5. 가슴압박, 인공호흡 반복</p>
+		<p>이후에는 30회의 가슴압박과 2회의 인공호흡을 119구급대원이 현장에 도착할 때까지 반복해서 시행한다.<br>
+			 (인공호흡이 어려울 경우 가슴압박을 자속적으로 시행)
+		</p>
+		<br>
+		<br>
+		<br>
+
+	</disv>
+		</div>
+
+ {% endblock %}

@@ -1,0 +1,376 @@
+{% extends "base.html" %}
+
+{% block title %}자동심장충격기{% endblock %}
+
+{% load staticfiles %}
+
+
+{% block content %}
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>자동심장충격기</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	
+
+    <style>
+      		h3 {
+			/*font-size: 30px;*/
+			/*margin-left: 220px;*/
+			margin-top: 50px;
+			margin-bottom:10px;
+			font-family: Arial, sans-serif;
+			font-weight: bold;
+		}
+
+		.menu{
+			width:100%;
+			margin-top: 30px;
+			font-size: 18pt;
+			font-family: Arial, sans-serif;
+			font-weight: bold;
+		}
+
+		
+		.content2{
+			display:inline;
+			margin-top: 10px;
+			/*margin-left: 220px;*/
+			float:left;
+			width:100%;
+			height:90px;
+			background: #EAEAEA;
+		}
+
+		.btn-group {
+			margin-top: 25px;
+			margin-left: 70px;
+			text-align: center;
+			position:relative;
+			z-index:1;
+
+		}
+
+		.checkbox{
+			text-align: right;
+			padding-right: 25px;
+			margin-left: 20px;
+			padding-top: 25px;
+			float: center;
+		}
+		
+		
+		input{
+			margin-left: 25px;
+			margin-left: 25px;
+		}
+		
+		table.table {
+		    border-spacing: 1px;
+		    text-align: center;
+		    line-height: 1.5;
+		    margin: 20px 10px;
+		    font-size: 15px;
+		    background: #fff;	
+			width:100%;
+			margin-left: 2px;
+		}
+		
+		/*첫번째 자동심장충격기 위치*/
+	     .box1 {
+	    	vertical-align: center;
+	    	display: inline;
+	    	width:100%;
+	    	height: 50px;
+	    	float: left;
+	    	background: #D8D8D8;
+	    	font-size: 16px;
+	    	/*margin-left: 2px;*/
+	    	margin-top:  80px;
+	    	padding: 10px 10px;
+			text-align: center;
+	    }
+
+	    /*두번째 자동심장충격기 위치*/
+		.box2 {
+	    	vertical-align: center;
+	    	display: inline;
+	    	width:120%;
+	    	height: 50px;
+	    	float: left;
+	    	background: white;
+	    	font-size: 16px;
+	    	margin-left: -107px;
+	    	margin-top: 5px;
+	    	padding: 10px 10px;
+			text-align: center;
+	    }
+
+	    /*세번째 자동심장충격기 위치*/
+		.box3 {
+	    	vertical-align: center;
+	    	display: inline;
+	    	width:113%;
+	    	height: 50px;
+	    	float: left;
+	    	background: #D8D8D8;
+	    	font-size: 16px;
+	    	margin-left: -70px;
+	    	margin-top: 5px;
+	    	padding: 10px 10px;
+			text-align: center;
+	    }
+
+	    /*네ㅔ번째 자동심장충격기 위치*/
+		.box4 {
+		    vertical-align: center;
+	    	display: inline;
+	    	width:120%;
+	    	height: 50px;
+	    	float: left;
+	    	background: white;
+	    	font-size: 16px;
+	    	margin-left: -107px;
+	    	margin-top: 5px;
+	    	padding: 10px 10px;
+			text-align: center;
+	    }
+
+	    /*다섯번째 자동심장충격기 위치*/
+		.box5 {
+	    	vertical-align: center;
+	    	display: inline;
+	    	width:100%;
+	    	height: 50px;
+	    	float: left;
+	    	background: #D8D8D8;
+	    	font-size: 16px;
+	    	margin-left: 2px;
+	    	margin-top: 5px;
+	    	padding: 10px 10px;
+			text-align: center;
+	    }
+		.button {
+			border: 1px solid #080808;
+			background: #585b5c;
+			padding: 6.5px 13px;
+			color: #ffffff;
+			font-size: 12px;
+			font-family: Arial, sans-serif;
+			text-decoration: none;
+			vertical-align: middle;
+			border-radius: 4px;
+			margin-left: 10px;
+			margin-top: -10px;
+			position:relative;
+		}
+
+		/*첫번째 병원*/
+        .al1 {
+			/*margin-left: 220px;*/
+			width:100%;
+        }
+
+		.drop {
+			margin-top: -100px;
+		}
+		
+		.table {
+			width: 1180px;
+		}
+		
+		/*두번째 병원*/
+		.al2{
+			margin-top: 65px;
+			margin-left: 70px;
+			width:89%;
+		}
+
+		/*세번째 병원*/
+		.al3{
+			margin-top: 80px;
+			margin-left: 70px;
+			width:89%;
+		}
+		
+		/*네번째 병원*/
+		.al4{
+			margin-top: 80px;
+			margin-left: 70px;
+			width:89%;
+		}
+		
+		input {
+			font-size: 15px;
+			margin-top: 10px;
+			margin-left: 30px;
+		}
+		
+		.dlqfur{
+			/*margin-left: 2px;*/
+		}
+
+		.dlqfur1{
+			/*margin-left: 110px;*/
+			height: 30px;
+			width: 280px;
+		}
+		
+		.menu2 {
+			width:200%;
+			font-size: 14pt;
+			font-family: Arial, sans-serif;
+			display: inline;
+			text-align: center;
+		}
+		
+			/* 드롭다운숨기고세로 */
+		.d ul{
+			border : 1px solid #BDBDBD;
+			list-style: none;
+			position: absolute;
+			display: none;
+		}
+
+		/* 옆에 짝대기 */
+		.d li {
+			border-right:  1px solid #BDBDBD;
+		}
+
+		.d li:hover ul {
+			display: block;
+			border : 1px solid #BDBDBD;
+			
+		}
+
+
+		#hr {
+			border-bottom: 1px solid #BDBDBD;
+			width: 185px;
+		}
+
+		.c1 {
+			border-bottom: 1px solid #BDBDBD;
+			margin-top:-20px;
+		}
+
+		.a111 {
+			font-size: 14px;
+			color: red;
+			/*margin-left: 220px;*/
+			margin-top: 250px;
+			margin-bottom:25px;
+		}
+
+    </style>
+</head>
+<body>
+		<h3>자동심장충격기</h3>
+		
+		<section>
+			<article class="content2">
+			
+			<div class="btn-group2">
+			<div class="btn-group">
+			
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				시도선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">서울특별시</a></li>
+				<li><a href="#">경기도</a></li>		
+				<!--<li class="divider"></li> 이것은 드롭다운할때 구분선 -->
+				<li><a href="#">인천광역시</a></li>
+			</ul>	</div><div class="btn-group">		
+		
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				구군선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">관악구</a></li>
+				<li><a href="#">송파구</a></li>		
+				<!--<li class="divider"></li> 이것은 드롭다운할때 구분선 -->
+				<li><a href="#">영등포구</a></li>
+			</ul></div><div class="btn-group">
+			
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				동선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">성현동</a></li>
+				<li><a href="#">가락동</a></li>		
+				<!--<li class="divider"></li> 이것은 드롭다운할때 구분선 -->
+				<li><a href="#">대림동</a></li>
+			</ul>
+		
+			</div>
+			
+		</div>
+			
+			</article>
+		</section>
+	   
+<div class="al1">
+	<section> 
+		<article class="box1"> 
+			<p> (주)&nbspGS글로벌&nbsp(10층&nbsp남자화장실&nbsp출입문&nbsp앞) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp서울특별시&nbsp강남구&nbsp논현로&nbsp508&nbspGS타워&nbsp10층&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp02&nbsp-&nbsp2005&nbsp-&nbsp5361&nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAED사용가능</p>
+
+		</article> 
+	</section>
+
+</div>
+
+
+<div class="al2">                 
+	<section> 
+		<article class="box2"> 
+			<p> (주)&nbsp대현그린타워&nbsp(1층&nbsp로비)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp서울특별시&nbsp강남구&nbsp언주로&nbsp619&nbsp논현동&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp02&nbsp-&nbsp3485&nbsp-&nbsp7119&nbsp&nbsp&nbsp <a href="#" class="button">상세정보</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAED사용가능</p>
+
+		</article> 
+	</section>
+</div>
+
+<div class="al3">                 
+	<section> 
+		<article class="box3"> 
+			<p> (주)&nbspGS글로벌&nbsp(10층&nbsp남자화장실&nbsp출입문&nbsp앞) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp서울특별시&nbsp강남구&nbsp논현로&nbsp508&nbspGS타워&nbsp10층&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp02&nbsp-&nbsp2005&nbsp-&nbsp5361&nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAED사용가능</p>
+
+		</article> 
+	</section>
+</div>
+
+<div class="al4">                 
+	<section> 
+		<article class="box4"> 
+			<p> (주)&nbsp대현그린타워&nbsp(1층&nbsp로비)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp서울특별시&nbsp강남구&nbsp언주로&nbsp619&nbsp논현동&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp02&nbsp-&nbsp3485&nbsp-&nbsp7119&nbsp&nbsp&nbsp <a href="#" class="button">상세정보</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAED사용가능</p>
+
+		</article> 
+	</section>
+</div>
+
+<div class="al5">                 
+	<section> 
+		<article class="box5"> 
+			<p> (주)&nbspGS글로벌&nbsp(10층&nbsp남자화장실&nbsp출입문&nbsp앞) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp서울특별시&nbsp강남구&nbsp논현로&nbsp508&nbspGS타워&nbsp10층&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp02&nbsp-&nbsp2005&nbsp-&nbsp5361&nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAED사용가능</p>
+		</article> 
+	</section>
+</div>	
+		
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+
+		<!-- [if lt IE 9]>
+			<script src="html5shiv/html5shiv.min.js">
+			<script src="respond/respond.min.js">
+		<![endif]-->
+  </body>
+
+{% endblock %}

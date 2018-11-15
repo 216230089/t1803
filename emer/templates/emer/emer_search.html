@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}검색 결과{% endblock %}
+
+{% block content %}
+<div id="content">
+
+<h1>검색 결과</h1>
+
+<form action="." method="emer"> {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Submit" />
+</form>
+
+<br/><br/>
+
+{% if object_list %}
+{% for post in object_list %}
+    <h2><a href='{{ emer.get_absolute_url }}'>{{ emer.mname }}</a></h2>
+    {{ emer.modify_date|date:"N d, Y" }}
+    <p>{{ emer.madd }}</p>
+{% endfor %}
+
+{% elif search_term %}
+<b><i>Search Word({{ search_term }}) 결과가 없습니다. </i></b>
+{% endif %}
+
+</div>
+{% endblock %}

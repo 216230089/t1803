@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}회원가입 완료{% endblock %}
+
+{% block content %}
+<head>
+<style>
+#content { 
+	text-align: center;
+}
+
+</style>
+</head>
+<div id="content">
+
+    <h1>회원가입 완료</h1>
+
+    <p>회원가입을 축하합니다.</p>
+
+     <p><a href="{% url 'login' %}"><input type="submit" value="로그인"/></a></p>
+
+
+</div>
+{% endblock %}

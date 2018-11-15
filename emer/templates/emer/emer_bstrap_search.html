@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}검색 결과{% endblock %}
+
+{% block content %}
+<div id="content">
+
+<h2><b>검색 결과</h2>
+
+<br/>
+
+{% if object_list %}
+<b style=" font-size: 15px;"><i>검색 단어({{ search_term }}) : {{ search_count }}개가 검색되었습니다.</b></i><br><br>
+
+
+{% for emer in object_list %}
+    <h2><a href='{{ emer.get_absolute_url }}'>{{ emer.mname }}</a></h2>
+    {{ emer.modify_date|date:"Y.m.d" }}<br><br>
+    <p>{{ emer.madd }}</p>
+{% endfor %}
+
+{% elif search_term %}
+<b><i>검색 단어({{ search_term }}) 결과가 없습니다.</i></b>
+{% endif %}
+
+</div>
+{% endblock %}

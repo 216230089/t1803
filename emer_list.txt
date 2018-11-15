@@ -1,0 +1,424 @@
+{% extends "base.html" %}
+
+{% block title %}응급실{% endblock %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ko">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>응급실</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+      		h3 {
+			/*font-size: 30px;*/
+			/*margin-left: 220px;*/
+			margin-top: 50px;
+			margin-bottom:10px;
+			font-family: Arial, sans-serif;
+			font-weight: bold;
+		}
+
+		.menu{
+			width:100%;
+			margin-top: 30px;
+			font-size: 18pt;
+			font-family: Arial, sans-serif;
+			font-weight: bold;
+		}
+
+		
+		.content2{
+			display:inline;
+			margin-top: 10px;
+			/*margin-left: 220px;*/
+			float:left;
+			width:100%;
+			height:146px;
+			background: #EAEAEA;
+		}
+		.btn-group {
+			margin-top: 25px;
+			margin-left: 25px;
+			text-align: center;
+			position:relative;
+			z-index:1;
+
+		}
+			
+/*		input{
+			margin-left: 25px;
+			margin-left: 25px;
+		}*/
+		
+		table.table {
+		    border-spacing: 1px;
+		    text-align: center;
+		    line-height: 1.5;
+		    margin: 20px 10px;
+		    font-size: 15px;
+		    background: #fff;	
+			width:100%;
+			margin-left: 2px;
+		}			
+	    .box {
+	    	vertical-align: center;
+	    	display: inline;
+	    	width:100%;
+	    	height: 35px;
+	    	float: left;
+	    	background: #D8D8D8;
+	    	font-size: 16px;
+	    	margin-left: 2px;
+	    	margin-top: -20px;
+	    	padding: 10px 10px;
+	    }
+
+		.button {
+			border: 1px solid #080808;
+			background: #585b5c;
+			padding: 6.5px 13px;
+			color: #ffffff;
+			font-size: 12px;
+			font-family: Arial, sans-serif;
+			text-decoration: none;
+			text-align: center;
+			vertical-align: middle;
+			border-radius: 4px;
+			margin-left: 10px;
+			margin-top: -10px;
+			position:relative;
+			height: 30px;
+
+		}
+
+		/*첫번째 병원*/
+        .al1 {
+			margin-top: 255px;
+			/*margin-left: 220px;*/
+			width:100%;
+        }
+
+		.table {
+			width: 1180px;
+		}
+		
+		/*두번째 병원*/
+		.al2{
+			margin-top: 80px;
+			margin-left: 70px;
+			width:89%;
+		}
+
+		/*세번째 병원*/
+		.al3{
+			margin-top: 80px;
+			margin-left: 70px;
+			width:89%;
+		}
+		
+		/*네번째 병원*/
+		.al4{
+			margin-top: 80px;
+			margin-left: 3px;
+			width:100%;
+		}
+		
+/*		input {
+			font-size: 15px;
+			margin-top: 10px;
+			margin-left: 30px;
+		}*/
+		
+/*		.c>ul { margin-left:-10px;}
+       	.c>ul>li {border-right : solid 3px #D8D8D8; width: 15%;  }       
+        .c>ul>li>a>img {margin-left:20px; margin-top:-13px; margin-bottom:-10px; }
+        .c>ul>li>a {text-align:center; }*/
+		
+        /*병원검색*/
+		.dlqfur{
+			margin-left: 110px;
+			height: 50px;
+		}
+
+		.dlqfur1{
+			/*margin-left: 110px;*/
+			height: 30px;
+			width: 280px;
+		}
+		
+		
+			/* 드롭다운숨기고세로 */
+		.d ul{
+			border : 1px solid #BDBDBD;
+			list-style: none;
+			position: absolute;
+			display: none;
+		}
+
+		/* 옆에 짝대기 */
+		.d li {
+			border-right:  1px solid #BDBDBD;
+			
+		}
+
+		.d li:hover ul {
+			display: block;
+			border : 1px solid #BDBDBD;
+			
+		}
+
+
+		#hr {
+			border-bottom: 1px solid #BDBDBD;
+			width: 185px;
+		}
+
+/*		.d img  {
+			width: 30px;
+			height: 30px;
+			margin-right: 20px;
+			margin-bottom: 10px;
+			margin-left: 5px;
+			margin-top:10px;
+		}*/
+    </style>
+</head>
+<body>
+		<h3>응급실</h3>
+		
+		<section>
+			<article class="content2">
+			
+			<center><div class="btn-group2">
+			<div class="btn-group">
+			
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				시도선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">서울</a></li>
+                <li><a href="#">인천</a></li>      
+                <li><a href="#">경기</a></li>
+                <li><a href="#">부산</a></li>
+                <li><a href="#">대구</a></li>
+                <li><a href="#">광주</a></li>
+                <li><a href="#">대전</a></li>
+                <li><a href="#">울산</a></li>
+                <li><a href="#">세종</a></li>
+                <li><a href="#">강원</a></li>
+                <li><a href="#">충북</a></li>
+                <li><a href="#">충남</a></li>
+                <li><a href="#">전북</a></li>
+                <li><a href="#">전남</a></li>
+                <li><a href="#">경북</a></li>
+                <li><a href="#">경남</a></li>
+                <li><a href="#">제주</a></li>
+			</ul>	
+			</div>
+			
+			<div class="btn-group">		
+		
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				구군선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">서울</a></li>
+                <li><a href="#">인천</a></li>      
+                <li><a href="#">경기</a></li>
+                <li><a href="#">부산</a></li>
+                <li><a href="#">대구</a></li>
+			</ul></div>
+			
+			<div class="btn-group">
+			
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				동선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">서울</a></li>
+                <li><a href="#">인천</a></li>      
+                <li><a href="#">경기</a></li>
+                <li><a href="#">부산</a></li>
+                <li><a href="#">대구</a></li>
+			</ul>
+		
+			</div>
+			</div></center>
+			
+
+			<br>
+ 		<form class="navbar-form navbar-right" role="search" action="{% url 'emer:bssearch' %}">
+            <div class="form-group" style="display:inline;">
+              <div class="input-group">
+                <input type="text" class="form-control" name="search" placeholder="search emergency contents">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+              </div>
+            </div>
+          </form>
+
+			</article>
+		</section>
+	   
+
+<div class="al1">
+	<section> 
+		<article class="box"> 
+			<p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 한양대학교&nbsp병원 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   서울특별시 &nbsp성동구 &nbsp왕십리로222-1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  02&nbsp-&nbsp870&nbsp-&nbsp2114 &nbsp&nbsp&nbsp<button type="button" class="button" onclick="window.location.href='{% url 'emer:change' %}'">상세정보</a> </p></button>
+
+		</article> 
+	</section>
+<table class="table table-bordered">
+<!--  <table class="type1"> -->
+    <thead>
+    <tr>
+        <td scope="cols">응급실 일반 병상</th>
+        <td scope="cols">응급실 일반 병상</th>
+        <td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>11/27</th>
+        <td>4/15</th>
+        <td>1/22</th>
+        <td>11/27</th>
+        <td>4/15</th>
+		<td>1/22</th>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>
+
+<div class="al2">                 
+			<section> 
+				<article class="box"> 
+					<p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 한양대학교&nbsp병원 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   서울특별시 &nbsp성동구 &nbsp왕십리로222-1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  02&nbsp-&nbsp870&nbsp-&nbsp2114 &nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> </p>
+
+				</article> 
+			</section>
+
+<table class="table table-bordered">
+<!--  <table class="type1"> -->
+     <thead>
+    <tr>
+        <td scope="cols">응급실 일반 병상</th>
+        <td scope="cols">응급실 일반 병상</th>
+        <td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>11/27</th>
+        <td>4/15</th>
+        <td>1/22</th>
+        <td>11/27</th>
+        <td>4/15</th>
+		<td>1/22</th>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>
+
+<div class="al3">                 
+	<section> 
+		<article class="box"> 
+			<p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 한양대학교&nbsp병원 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   서울특별시 &nbsp성동구 &nbsp왕십리로222-1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  02&nbsp-&nbsp870&nbsp-&nbsp2114 &nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> </p>
+
+		</article> 
+	</section>
+
+<table class="table table-bordered">
+<!--  <table class="type1"> -->
+     <thead>
+    <tr>
+        <td scope="cols">응급실 일반 병상</th>
+        <td scope="cols">응급실 일반 병상</th>
+        <td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>11/27</th>
+        <td>4/15</th>
+        <td>1/22</th>
+        <td>11/27</th>
+        <td>4/15</th>
+		<td>1/22</th>
+    </tr>
+    </tbody>
+</table>
+
+<div class="al4">                 
+	<section> 
+		<article class="box"> 
+			<p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 한양대학교&nbsp병원 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   서울특별시 &nbsp성동구 &nbsp왕십리로222-1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  02&nbsp-&nbsp870&nbsp-&nbsp2114 &nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> </p>
+
+		</article> 
+	</section>
+
+<table class="table table-bordered">
+<!--  <table class="type1"> -->
+     <thead>
+    <tr>
+        <td scope="cols">응급실 일반 병상</th>
+        <td scope="cols">응급실 일반 병상</th>
+        <td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+		<td scope="cols">응급실 일반 병상</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>11/27</th>
+        <td>4/15</th>
+        <td>1/22</th>
+        <td>11/27</th>
+        <td>4/15</th>
+		<td>1/22</th>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>		
+		
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		
+
+		<!-- [if lt IE 9]>
+			<script src="html5shiv/html5shiv.min.js">
+			<script src="respond/respond.min.js">
+		<![endif]-->
+  </body>
+
+
+
+
+
+ {% endblock %}

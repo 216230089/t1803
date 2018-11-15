@@ -1,0 +1,450 @@
+{% extends "base.html" %}
+
+{% block title %}병원{% endblock %}
+
+{% load staticfiles %}
+
+
+{% block content %}
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>병원</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	
+
+    <style>
+      		h3 {
+			/*font-size: 30px;*/
+			/*margin-left: 220px;*/
+			margin-top: 50px;
+			margin-bottom:10px;
+			font-family: Arial, sans-serif;
+			font-weight: bold;
+		}
+
+		.menu{
+			width:100%;
+			margin-top: 30px;
+			font-size: 18pt;
+			font-family: Arial, sans-serif;
+			font-weight: bold;
+		}
+
+		
+		.content2{
+			display:inline;
+			margin-top: 10px;
+			/*margin-left: 220px;*/
+			float:left;
+			width:100%;
+			height:205px;
+			background: #EAEAEA;
+		}
+		.btn-group {
+			margin-top: 25px;
+			margin-left: 25px;
+			text-align: center;
+			position:relative;
+			/*z-index:1;*/
+
+		}
+
+		.btn-group1 {
+			z-index: 10;
+		}
+		.checkbox{
+			text-align: right;
+			padding-right: 25px;
+			margin-left: 20px;
+			padding-top: 25px;
+			float: center;
+		}
+		
+		
+		input{
+			margin-left: 25px;
+			margin-left: 25px;
+		}
+		
+		table.table {
+		    border-spacing: 1px;
+		    text-align: center;
+		    line-height: 1.5;
+		    margin: 20px 10px;
+		    font-size: 15px;
+		    background: #fff;	
+			width:100%;
+			margin-left: 2px;
+		}
+		
+	    .box {
+	    	vertical-align: center;
+	    	display: inline;
+	    	width:100%;
+	    	height: 35px;
+	    	float: left;
+	    	background: #D8D8D8;
+	    	font-size: 16px;
+	    	margin-left: 2px;
+	    	margin-top: -20px;
+	    	padding: 10px 10px;
+	    }
+
+		.button {
+			border: 1px solid #080808;
+			background: #585b5c;
+			padding: 6.5px 13px;
+			color: #ffffff;
+			font-size: 12px;
+			font-family: Arial, sans-serif;
+			text-decoration: none;
+			vertical-align: middle;
+			border-radius: 4px;
+			margin-left: 10px;
+			margin-top: -10px;
+			position:relative;
+		}
+
+		/*첫번째 병원*/
+        .al1 {
+			/*margin-left: 220px;*/
+			width:100%;
+        }
+
+		.drop {
+			margin-top: -100px;
+		}
+		
+		.table {
+			width: 1180px;
+		}
+		
+		/*두번째 병원*/
+		.al2{
+			margin-top: 65px;
+			margin-left: 70px;
+			width:89%;
+		}
+
+		/*세번째 병원*/
+		.al3{
+			margin-top: 80px;
+			margin-left: 70px;
+			width:89%;
+		}
+		
+		/*네번째 병원*/
+		.al4{
+			margin-top: 80px;
+			margin-left: 70px;
+			width:89%;
+		}
+		
+		input {
+			font-size: 15px;
+			margin-top: 10px;
+			margin-left: 30px;
+		}
+		
+		.dlqfur{
+			/*margin-left: 2px;*/
+		}
+
+		.dlqfur1{
+			/*margin-left: 110px;*/
+			height: 30px;
+			width: 280px;
+		}
+		
+		.menu2 {
+			width:200%;
+			font-size: 14pt;
+			font-family: Arial, sans-serif;
+			display: inline;
+			text-align: center;
+		}
+		
+			/* 드롭다운숨기고세로 */
+		.d ul{
+			border : 1px solid #BDBDBD;
+			list-style: none;
+			position: absolute;
+			display: none;
+		}
+
+		/* 옆에 짝대기 */
+		.d li {
+			border-right:  1px solid #BDBDBD;
+		}
+
+		.d li:hover ul {
+			display: block;
+			border : 1px solid #BDBDBD;
+			
+		}
+
+
+		#hr {
+			border-bottom: 1px solid #BDBDBD;
+			width: 185px;
+		}
+
+		.c1 {
+			border-bottom: 1px solid #BDBDBD;
+			margin-top:-20px;
+		}
+
+		.a111 {
+			font-size: 14px;
+			color: red;
+			/*margin-left: 220px;*/
+			margin-top: 250px;
+			margin-bottom:25px;
+		}
+
+    </style>
+</head>
+<body>
+		<h3>병원</h3>
+		
+		<section>
+			<article class="content2">
+			
+			<div class="btn-group1">
+				<div class="btn-group">
+			
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				시도선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">서울특별시</a></li>
+					<li><a href="#">경기도</a></li>		
+					<!--<li class="divider"></li> 이것은 드롭다운할때 구분선 -->
+					<li><a href="#">인천광역시</a></li>
+				</ul>	
+				</div>
+
+				<div class="btn-group">		
+			
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					구선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">관악구</a></li>
+					<li><a href="#">송파구</a></li>		
+					<!--<li class="divider"></li> 이것은 드롭다운할때 구분선 -->
+					<li><a href="#">영등포구</a></li>
+				</ul>
+				</div>
+
+				<div class="btn-group">
+				
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					동선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">성현동</a></li>
+					<li><a href="#">가락동</a></li>		
+					<!--<li class="divider"></li> 이것은 드롭다운할때 구분선 -->
+					<li><a href="#">대림동</a></li>
+				</ul>
+		
+				</div>
+			</div>
+			
+
+	<div class="btn-group2">
+		<div class="btn-group">
+			
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				진료과목 선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">산부인과</a></li>
+				<li><a href="#">정형외과</a></li>		
+				<!--<li class="divider"></li> 이것은 드롭다운할때 구분선 -->
+				<li><a href="#">안과</a></li>
+			</ul>	
+		</div>
+
+			<div class="btn-group">			
+		
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				진료요일 선택 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">월요일</a></li>
+				<li><a href="#">화요일</a></li>		
+				<!--<li class="divider"></li> 이것은 드롭다운할때 구분선 -->
+				<li><a href="#">수요일</a></li>
+				<li><a href="#">목요일</a></li>
+				<li><a href="#">금요일</a></li>
+				<li><a href="#">토요일</a></li>
+				<li><a href="#">일요일</a></li>
+			</ul>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<input type="checkbox" name="checkbox" value="야간 진료여부" /> 야간 진료여부
+			</div>
+	</div>
+			<br>
+			<div class="dlqfur">
+			<input type="text" class="dlqfur1" name="text" placeholder="병원명을 입력하세요."/>
+			<input type="submit" class="dlqfur2" name="submit" value="검색"/>
+			</div>
+			</article>
+		</section>
+	   
+<div class="a111">  
+	<u>현재시간으로 운영되는 의료기관만 표시됩니다.</u>
+</div>
+<div class="al1">
+	<section> 
+		<article class="box"> 
+			<p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 한양대학교&nbsp병원 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   서울특별시 &nbsp성동구 &nbsp왕십리로222-1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  02&nbsp-&nbsp870&nbsp-&nbsp2114 &nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> </p>
+
+		</article> 
+	</section>
+<table class="table table-bordered">
+<!--  <table class="type1"> -->
+    <thead>
+    <tr>
+        <td scope="cols">진료시간</th>
+        <td scope="cols">입원실</th>
+        <td scope="cols">응급실</th>
+        <td scope="cols">야간진료</th>
+        <td scope="cols">공휴일 진료</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>9:30 ~ 18:00</th>
+        <td>운영</th>
+        <td>운영</th>
+        <td>운영안함</th>
+        <td>운영안함</th>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>
+
+<div class="al2">                 
+			<section> 
+				<article class="box"> 
+					<p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 한양대학교&nbsp병원 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   서울특별시 &nbsp성동구 &nbsp왕십리로222-1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  02&nbsp-&nbsp870&nbsp-&nbsp2114 &nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> </p>
+
+				</article> 
+			</section>
+
+<table class="table table-bordered">
+<!--  <table class="type1"> -->
+    <thead>
+    <tr>
+        <td scope="cols">진료시간</th>
+        <td scope="cols">입원실</th>
+        <td scope="cols">응급실</th>
+        <td scope="cols">야간진료</th>
+        <td scope="cols">공휴일 진료</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>9:30 ~ 18:00</th>
+        <td>운영</th>
+        <td>운영</th>
+        <td>운영안함</th>
+        <td>운영안함</th>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>
+
+<div class="al3">                 
+	<section> 
+		<article class="box"> 
+			<p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 한양대학교&nbsp병원 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   서울특별시 &nbsp성동구 &nbsp왕십리로222-1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  02&nbsp-&nbsp870&nbsp-&nbsp2114 &nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> </p>
+
+		</article> 
+	</section>
+
+<table class="table table-bordered">
+<!--  <table class="type1"> -->
+    <thead>
+    <tr>
+        <td scope="cols">진료시간</th>
+        <td scope="cols">입원실</th>
+        <td scope="cols">응급실</th>
+        <td scope="cols">야간진료</th>
+        <td scope="cols">공휴일 진료</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>9:30 ~ 18:00</th>
+        <td>운영</th>
+        <td>운영</th>
+        <td>운영안함</th>
+        <td>운영안함</th>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div class="al4">                 
+	<section> 
+		<article class="box"> 
+			<p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 한양대학교&nbsp병원 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   서울특별시 &nbsp성동구 &nbsp왕십리로222-1  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  02&nbsp-&nbsp870&nbsp-&nbsp2114 &nbsp&nbsp&nbsp<a href="#" class="button">상세정보</a> </p>
+
+		</article> 
+	</section>
+
+<table class="table table-bordered">
+<!--  <table class="type1"> -->
+    <thead>
+    <tr>
+        <td scope="cols">진료시간</th>
+        <td scope="cols">입원실</th>
+        <td scope="cols">응급실</th>
+        <td scope="cols">야간진료</th>
+        <td scope="cols">공휴일 진료</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>9:30 ~ 18:00</th>
+        <td>운영</th>
+        <td>운영</th>
+        <td>운영안함</th>
+        <td>운영안함</th>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>
+</div>		
+		
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+
+		<!-- [if lt IE 9]>
+			<script src="html5shiv/html5shiv.min.js">
+			<script src="respond/respond.min.js">
+		<![endif]-->
+  </body>
+
+{% endblock %}

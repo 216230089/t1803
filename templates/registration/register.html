@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}회원가입{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/forms.css" %}{% endblock %}
+
+{% block content %}
+
+<style>
+
+.content15 {
+    position: relative;
+    top:30px;
+    bottom: 0px;
+    margin: 70px auto;
+    float: left;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #BDBDBD;
+}
+
+.content16 {
+    margin-top:50px;
+    margin-bottom:10px;
+
+}
+
+.content16 li{
+    display: inline;
+}
+
+.footer2 img{
+         height: 60px;
+            }
+
+.logo {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+
+
+    
+
+        .submit1{
+            /*margin: 5px 0;*/
+            text-align: center;
+        }
+
+
+        .content {
+            width: 50%;
+            height: 500px;
+            background:#fff;
+            margin: 60px auto;
+            border:1px solid #e5e5e5;
+            -moz-box-shadow: rgba(200,200,200,.7) 0 4px 10px -1px;
+            -webkit-box-shadow: rgba(200,200,200,.7) 0 4px 10px -1px;
+            box-shadow: rgba(200,200,200,.7) 0 4px 10px -1px;
+            text-align: center;
+            padding-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .content h1{
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+
+
+
+        .content form {
+            margin:0px auto;                     
+            margin-top:30px;
+            padding:20px;
+        }
+
+        .form-row{
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+        }
+
+                .errornote{
+            text-align: center;
+            color: red;
+            font-size: 16px;
+        }
+
+
+</style>
+<body>
+   <!--  <form method="post" action="."> <input type='hidden' name='csrfmiddlewaretoken' value='wVzQjUkx5SdoZ7nR9cEACL2pZDW2m6R14YL2Rg9KaCw9MGsvPqmaMEbhqbsqhMFV' />
+ -->
+<form action="" method="post">{% csrf_token %}
+
+<div class="content">
+
+   <h1>회원가입</h1>
+   <br>
+
+        <div class="form-row">
+          아 이 디&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  {{ form.username }}
+        </div>
+        
+        <div class="form-row">
+           비 밀 번 호&nbsp&nbsp&nbsp&nbsp {{ form.password1 }}
+        </div>
+        
+        <div class="form-row">
+            비밀번호 확인&nbsp {{ form.password2 }}
+        </div>
+    
+  <!--       <div class="form-row">
+            아 이 디&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <input type="text" name="username" maxlength="150" autofocus required id="id_username" />
+        </div>
+        <br>
+        <div class="form-row">
+            비 밀 번 호&nbsp&nbsp&nbsp&nbsp  <input type="password" name="password1" required id="id_password1" />
+        </div>
+        <br>
+        <div class="form-row">
+            비밀번호 확인&nbsp  <input type="password" name="password2" required id="id_password2" />
+        </div> -->
+<!-- 
+        <div class="form-row">
+            이메일 : 
+        </div>
+
+        <div class="form-row">
+            전화번호 : 
+        </div> -->
+
+    <br>
+        
+    
+    <br>
+    <div class="submit1">
+        <input type="submit" value="회원가입"
+        class="btn  " 
+        style="height: 40px; width: 400px; background-color: #BDBDBD;"/>
+    </div>
+    
+    <script type="text/javascript">document.getElementById("id_username").focus();</script>
+    </form>
+
+</div>
+</form>
+</body>
+
+
+    
+
+{% endblock %}

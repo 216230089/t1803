@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+
+{% block title %}상세보기{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/forms.css" %}{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <title>네이버 지도 API - 주소로 지도 표시하기 </title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=nXgLmBEbaTBVyBRa9gup&submodules=geocoder"> </script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>응급실찾기 상세보기</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .b {
+                align: center;
+                width: 100%;
+                margin-left: 60px;
+                background-color: #fff;
+            }
+            .b li {
+                width: 20%;
+            }
+            a {
+                color: black;
+            }
+            .logo {
+                margin-left: 38%;
+            }
+            #container {
+                width:100%;
+                margin:0 auto;
+            }
+
+            .navbar{
+                background-color: #fff;
+
+            }
+            .content5{
+                border-top: 1px solid #5D5D5D;
+                padding-top: 30px;
+                display:inline;
+                margin: 40px auto;
+                float:left;
+                width:100%;
+                height:10px;
+                background-color: rgba(232,253,225,0);
+                text-align: center;
+            }
+            .content4{
+                border-top: 1px solid #5D5D5D;
+                padding-top: 30px;
+                display:inline;
+                margin: 40px auto;
+                float:left;
+                width:100%;
+                height:10px;
+                background-color: rgba(232,253,225,0);
+                text-align: center;
+            }
+
+            .footer1 img{
+                margin-left: 10px;
+                height: 110px;
+                width: 250px;
+            }
+            .row1 li{
+                display: inline;
+            }
+
+            .tab{
+
+                margin-left: 40%;
+                margin-top: -30%;
+            }
+
+            .tab th{
+                height: 50px;
+                width: 100px;
+                text-align: center;
+                background-color: #dbdbdb;
+            }
+
+            .tab td{
+                width: 400px;
+                text-align: center;
+            }
+
+            .info img{
+                width: 60px;
+                height: 60px;
+            }
+
+            .info li{
+                display: inline;
+            }
+
+            .row{
+                margin-left:160px;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+
+
+        <div id="fullpage">
+                <div class="section" id="book1">
+                    <div class="container">
+                        <h3 style="font-weight:bold;">응급실찾기</h3>
+                        <h5>응급실 정보 검색 서비스입니다.</h5>
+                        <br>
+                        <div class="info">
+                        <li style="font-size: 30px; font-weight:bold;">한양대학교병원</li>
+                        <li><img src="{% static 'img/time.png' %}" />현재진료가능</li>
+                        <li><img src="{% static 'img/light.png' %}" />응급실운영</li>
+                        <li><img src="{% static 'img/bed.png' %}" />입원실운영</li>
+                        </div>
+
+
+    <div id="map" style="width:50%;height:400px;"></div>
+    <script>
+      var map = new naver.maps.Map('map');
+      var myaddress = '서울 성동구 왕십리로 222-1';
+// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
+//여기에 view에서 넘기는 어쩌구..
+
+      naver.maps.Service.geocode({address: myaddress}, function(status, response) {
+          if (status !== naver.maps.Service.Status.OK) {
+              return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
+          }
+          var result = response.result;
+          // 검색 결과 갯수: result.total
+          // 첫번째 결과 결과 주소: result.items[0].address
+          // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
+          var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+          map.setCenter(myaddr); // 검색된 좌표로 지도 이동
+          // 마커 표시
+          var marker = new naver.maps.Marker({
+            position: myaddr,
+            map: map
+          });
+          // 마커 클릭 이벤트 처리
+          naver.maps.Event.addListener(marker, "click", function(e) {
+            if (infowindow.getMap()) {
+                infowindow.close();
+            } else {
+                infowindow.open(map, marker);
+            }
+          });
+          // 마크 클릭시 인포윈도우 오픈
+          var infowindow = new naver.maps.InfoWindow({
+              content: '<h4> [네이버 개발자센터]</h4><a href="https://developers.naver.com" target="_blank"><img src="https://developers.naver.com/inc/devcenter/images/nd_img.png"></a>'
+          });
+      });
+
+      </script>
+
+                    {% for emer in emers %}
+                        <div class="row">
+
+                            <div class="col-md-3 col-sm-6">
+                                <!--<img src="map.png">-->
+                            </div>
+                            <div class="tab col-md-6">
+                                <table border="1">
+                                <tr>
+                                    <th></th>
+                                    <td>왜</td>
+                                </tr>
+                                <tr>
+                                    <th>대표전화&nbsp</th>
+                                    <td>02-2290-8114</td>
+                                </tr>
+                                <tr>
+                                    <th>기관구분</th>
+                                    <td>권역응급의료센터>상급종합병원</td>
+                                </tr>
+                                <tr>
+                                    <th>소개</th>
+                                    <td>한양대역 1번출구</td>
+                                </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                        <br>
+
+                        <div class="time">
+                            <h4>외래진료시간</h4>
+                            <hr></hr>
+                            <div class="row1">
+                            <li>● 월요일 9:00 ~ 18:00</li>&nbsp&nbsp
+                            <li>● 화요일 9:00 ~ 18:00</li>&nbsp&nbsp
+                            <li>● 수요일 9:00 ~ 18:00</li>&nbsp&nbsp
+                            <li>● 목요일 9:00 ~ 18:00</li>&nbsp&nbsp
+                            <li>● 금요일 9:00 ~ 18:00</li>&nbsp&nbsp
+                            <li>● 토요일 9:00 ~ 18:00</li>&nbsp&nbsp
+                            <li>● 일요일 -</li>&nbsp&nbsp
+                            <li>● 공휴일 -</li>&nbsp&nbsp
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="subject">
+                            <h4>진료과목</h4>
+                            <hr></hr>
+                            <div class="row1">
+                            <li>● 가정의학과</li>&nbsp&nbsp
+                            <li>● 결핵과</li>&nbsp&nbsp
+                            <li>● 구강안면외과</li>&nbsp&nbsp
+                            <li>● 내과</li>&nbsp&nbsp
+                            <li>● 마취통증의학과</li>&nbsp&nbsp
+                            <li>● 방사선종양학과</li>&nbsp&nbsp
+                            <li>● 병리과</li>&nbsp&nbsp
+                            <li>● 비뇨의학과</li>&nbsp&nbsp
+                            <li>● 산부인과</li>&nbsp&nbsp
+                            <li>● 성형외과</li>&nbsp&nbsp
+                            <li>● 소아과</li>&nbsp&nbsp
+                            <li>● 안과</li>&nbsp&nbsp
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="medi">
+                            <h4>의료자원</h4>
+                            <hr></hr>
+                            <div class="row1">
+                            <li>● 의료자원1</li>&nbsp&nbsp
+                            <li>● 의료자원2</li>&nbsp&nbsp
+                            <li>● 의료자원3</li>&nbsp&nbsp
+                            <li>● 의료자원4</li>&nbsp&nbsp
+                            <li>● 의료자원5</li>&nbsp&nbsp
+                            <li>● 의료자원6</li>&nbsp&nbsp
+                            <li>● 의료자원7</li>&nbsp&nbsp
+                            <li>● 의료자원8</li>&nbsp&nbsp
+                            <li>● 의료자원9</li>&nbsp&nbsp
+                            <li>● 의료자원10</li>&nbsp&nbsp
+                            <li>● 의료자원11</li>&nbsp&nbsp
+                            <li>● 의료자원12</li>&nbsp&nbsp
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="medi">
+                            <h4>실시간 병상정보</h4>
+                            <hr></hr>
+                            <div class="row1">
+                            <li>● 응급실 일반병상(9명 이용가능)</li>&nbsp&nbsp
+                            <li>● 응급실 일반병상(9명 이용가능)</li>&nbsp&nbsp
+                            <li>● 응급실 일반병상(9명 이용가능)</li>&nbsp&nbsp
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+        </div>
+        <script src="js/jquery-2.1.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- [if lt IE 9]>
+            <script src="html5shiv/html5shiv.min.js">
+            <script src="respond/respond.min.js">
+        <![endif]-->
+  </body>
+</html>
+{% endblock %}
+

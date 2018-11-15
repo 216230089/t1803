@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+
+{% block title %}home.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static 'css/carousel.css' %}{% endblock %}
+
+{% block content %}
+
+    <!-- Carousel
+    ================================================== -->
+<!--    
+   <form class="navbar-form navbar-right" role="search" action="{% url 'blog:bssearch' %}">
+            <div class="form-group" style="display:inline;">
+              <div class="input-group">
+                <input type="text" class="form-control" name="search" placeholder="search blog contents">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+              </div>
+            </div>
+    </form> -->
+
+<head>
+  <style>
+    div#content_home {
+    position: absolute;
+    top: 80px;
+    left: 110px;
+    right: 110px;
+}
+
+div#homeimg {
+    background: #ddd;
+    padding: 5px 0 1px 0;
+    text-align: center;
+}
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+/*
+  padding-bottom: 40px;
+  color: #5a5a5a;
+*/
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 520px;
+  margin-bottom: 40px;
+  
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 510px;
+  background-color: white;
+}
+
+.carousel-inner > .item > img {
+
+/*  position: absolute;
+  top: 5px;
+  left: 100px;
+  min-width: 10%;
+  height: 500px;*/
+  width: 2000px;
+  height: 650px;
+  border: 5px solid #aaa;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+    .carousel-caption h1 {
+    margin-bottom: 50px;
+    font-size: 30px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+
+  .carousel-caption p {
+    margin-bottom: 50px;
+    font-size: 21px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+/* Form Error */
+
+.errornote {
+    display: block;
+    margin: 5px 0;
+    border: 1px solid #c30;
+    background: #fcf;
+    padding: 5px 25px;
+    color: #c30;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Authentication Forms */
+
+fieldset {
+    border: 1px solid #ccc;
+}
+
+.aligned label {
+    float: left;
+    width: 170px;
+    padding: 3px 10px 0 0;
+}
+
+.form-row {
+    padding: 10px;
+    font-size: 11px;
+    border-bottom: 1px solid #eee;
+}
+
+.submit-row {
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    text-align: right;
+}
+
+.submit-row input {
+    margin: 10px;
+    background: #ffc;
+}
+
+.content7{
+  border-top: 1px solid #5D5D5D;
+  padding-top: 30px;
+  display:inline;
+  margin: 40px auto;
+  float:left;
+  width:100%;
+  height:10px;
+  background-color: rgba(232,253,225,0);
+  text-align: center;
+}
+
+.content7 img {
+  height: 80px;
+  width: 80px;
+  margin-left: 10px;
+}
+
+
+  </style>
+</head>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="second-slide" src="{% static 'img/hospital.jpg' %}" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>병원찾기</h1>
+              <p>응급실, 병원, 약국, 자동심장충격기, 민간구급차의 위치를 확인하세요.</p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'bookmark:index' %}" role="button">병원찾기 바로가기 </a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="first-slide" src="{% static 'img/emeredu.jpg' %}" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>응급처치방법</h1>
+              <p>응급처치 방법을 알아봅시다.</p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'bookmark:index' %}" role="button">응급처치방법 바로가기</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="" src="{% static 'img/hos.jpg' %}" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>우리의 약속(Mission)</h1>
+              <p> 우리는 항상 당신 곁에 있으며, 당신의 아픔을 치유하기 위하여 끊임없이 헌신합니다.</p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'photo:index' %}" role="button">한양학교병원 바로가기</a></p>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- /.carousel-inner -->
+
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">이전</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">다음</span>
+      </a>
+    </div><!-- /.carousel -->
+
+
+
+{% endblock content %}
+
+{% block footer %}
+    <hr style="margin:0" />
+      <section>
+     <article class="content7">
+      <div class="footer">
+      <a href="">HOME</a>&nbsp&nbsp
+        <a href="">골든아워</a>&nbsp&nbsp
+        <a href="">이용약관</a>&nbsp&nbsp
+        <a href="">가이드</a>&nbsp&nbsp
+        <a href="">사이트맵</a>
+        <p>Tel.02-1234-5678&nbsp&nbsp
+        t1803emergency@naver.com</p>
+        <p>서울특별시 성동구 행당동 살곶이길 18-3</p>
+        </div>
+        <img src="static/img/footer.PNG">
+       </article>
+      </section>
+{% endblock footer %}

@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}로그인{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/forms.css" %}{% endblock %}
+
+{% block content %}
+
+
+<head>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <style>
+
+.welcome{
+        color:black;
+        font-size: 15px;
+        margin-top: 13px;
+}
+
+.menu{
+        width:100%;
+        margin-top: 30px;
+        font-size: 18pt;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+    }
+    
+.b {
+    text-align: center;
+    width: 100%;
+    background-color: #fff;
+}
+
+.b li {
+        width: 20%;
+        font-size: 20px;
+    }
+
+
+        .submit{
+            margin: 5px 0;
+            text-align: center;
+        }
+
+
+        .login {
+            width: 50%;
+            height: 550px;
+            background:#fff;
+            margin: 60px auto;
+            border:1px solid #e5e5e5;
+            -moz-box-shadow: rgba(200,200,200,.7) 0 4px 10px -1px;
+            -webkit-box-shadow: rgba(200,200,200,.7) 0 4px 10px -1px;
+            box-shadow: rgba(200,200,200,.7) 0 4px 10px -1px;
+            text-align: center;
+            padding-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .login h1{
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+
+
+
+        .login form {
+            margin:0px auto;                     
+            margin-top:30px;
+            padding:20px;
+        }
+
+        .form-group{
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+        }
+
+        .radio{
+            text-align: 50%;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+                        .errornote{
+            text-align: center;
+            color: red;
+            font-size: 16px;
+        }
+</style>
+</head>
+
+<body>
+
+        <script src="js/jquery-2.1.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+
+
+  <!--   <form action="." method="post"><input type='hidden' name='csrfmiddlewaretoken' value='MIecz1nVCsDzVbionvyy7RI8AeKv0g2RkLqo7nc8HcWkIKn23Jg8hKR01MgTVWQL' /> -->
+<form action="" method="post">{% csrf_token %}
+    
+    <div class="login">
+        <h1>로그인 </h1>
+        <br>
+
+        <div class="radio">
+        <input type="radio" name="fruit" value="일반" /> 일반 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="fruit" value="병원" /> 병원&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="fruit" value="관리자" /> 관리자
+        </div>
+
+        <br>
+            <div class="form-group">
+               아 이 디&nbsp  <input type="text" name="username" autofocus maxlength="254" required id="id_username" />
+            </div>
+
+            <div class="form-group">
+                비밀번호   <input type="password" name="password" required id="id_password" />
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="rememberme">
+                <input name="rememberme" type="checkbox" id="rememberme" value="forever"> 로그인 상태유지</label>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="">아이디/비밀번호찾기</a>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/accounts/register/">회원 가입</a>
+            </div>
+            <br>
+                
+    <br>
+            <div class="submit">
+                <input type="submit" value="로그인" class="btn" 
+                style="height: 40px; width: 400px; background-color: #BDBDBD;"/> 
+                   <!-- input type="hidden" name="next" value="/" /-->
+                <input type="hidden" name="next" value="" />
+                </div>
+                <script type="text/javascript">document.getElementById('id_username').focus();</script>
+                </form>
+    </div>  
+
+
+
+
+    <!-- <fieldset class="aligned">
+
+        <div class="form-row">
+            아이디 :  {{ form.username }}
+        </div>
+    
+        <div class="form-row">
+            {{ form.p
+                assword.label_tag }} {{ form.password }}
+        </div>
+
+    </fieldset> -->
+
+
+   <!--  <div class="submit-row">
+        <input type="submit" value="Log In"/>
+        input type="hidden" name="next" value="/" /
+        <input type="hidden" name="next" value="{{ next }}" />
+    </div> -->
+
+    <script type="text/javascript">document.getElementById('id_username').focus();</script>
+    </form>
+
+</div>
+</body>
+{% endblock %}
